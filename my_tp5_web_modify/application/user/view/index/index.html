@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>user!!!</h1>
+    <div>
+        {volist name="userinfo" id="vo"} 欢迎用户： <strong>{$vo.user_name}</strong> {/volist}
+        <!-- 一些文件的信息 -->
+        <h1>文件包含</h1>
+        <li><a href="/index.php/user/fileinclude/check/?page=file1.php">file1</a></li>
+        <li><a href="/index.php/user/fileinclude/check/?page=file2.php">file2</a></li>
+        <li><a href="/index.php/user/fileinclude/check/?page=file3.php">file3</a></li>
+    </div>
+    <div>
+        <h1>
+            <a href="/index.php/user/changepswd/change">修改密码</a>
+        </h1>
+
+    </div>
+</body>
+
+</html>

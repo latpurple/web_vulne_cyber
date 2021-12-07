@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>web漏洞应用系统</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+</head>
+
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">web漏洞应用</div>
+
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="/index.php/admin/sql/query">sql注入</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/index.php/admin/sql/index/?num=1">常规注入</a></dd>
+                            <dd><a href="/index.php/admin/sql/index/?num=2">基于bool的盲注</a></dd>
+                            <dd><a href="/index.php/admin/sql/index/?num=3">基于时间的盲注</a></dd>
+                            <!-- <dd><a href="">超链接</a></dd> -->
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">xss</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/index.php/admin/xss/index/?choice=1">反射型xss</a></dd>
+                            <dd><a href="/index.php/admin/xss/index/?choice=2">存储型xss</a></dd>
+                            <!-- <dd><a href="">超链接</a></dd> -->
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="/index.php/admin/upload/index">文件上传</a></li>
+                    <li class="layui-nav-item"><a href="/index.php/admin/fileinclude/index">文件包含</a></li>
+                    <li class="layui-nav-item"><a href="/index.php/admin/csrf/index">csrf(跨站脚本)</a></li>
+                    <li class="layui-nav-item"><a href="/index.php/admin/unserialize/index">反序列化</a></li>
+                    <li class="layui-nav-item"><a href="/index.php/admin/xxe/index">xxe</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <h1>基于时间：请输入查询的id号</h1>
+            <form action="{:url('sql/timequery')}" method="post">
+                <input type="text" name='id' value=''>请输入id号
+                <button name="query">查询</button>
+            </form>
+            <div>
+                {$userinfo}
+            </div>
+            <div style="padding: 15px;">欢迎轻度紫的web漏洞应用系统~</div>
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © 轻度紫
+        </div>
+    </div>
+</body>
+
+</html>
